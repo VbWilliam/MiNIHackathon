@@ -16,7 +16,7 @@ namespace HoloToolkit.Unity.SpatialMapping
     /// </summary>
     [RequireComponent(typeof(Collider))]
     [RequireComponent(typeof(Interpolator))]
-    public class TapToPlace : MonoBehaviour, IInputClickHandler
+    public class TapToMoveToTree : MonoBehaviour, IInputClickHandler
     {
         [Tooltip("Distance from camera to keep the object while placing it.")]
         public float DefaultGazeDistance = 2.0f;
@@ -132,25 +132,17 @@ namespace HoloToolkit.Unity.SpatialMapping
 
         public virtual void OnInputClicked(InputClickedEventData eventData)
         {
-            //Debug.Log(eventData);
-            if (dontplace)
-                return;
-            // On each tap gesture, toggle whether the user is in placing mode.
-            IsBeingPlaced = !IsBeingPlaced;
-            HandlePlacement();
-            eventData.Use();
+            Debug.Log(eventData);
+            var anotherScript = GameObject.Find("GameScene").GetComponent<GameController>();
+            anotherScript.AddOrnament();
+            //gameObject.SetActive(false);
+            Destroy(gameObject);
         }
 
         private void HandlePlacement()
         {
-            if (IsBeingPlaced)
-            {
-                StartPlacing();
-            }
-            else
-            {
-                StopPlacing();
-            }
+            
+            dontplace = true;
         }
         private void StartPlacing()
         {

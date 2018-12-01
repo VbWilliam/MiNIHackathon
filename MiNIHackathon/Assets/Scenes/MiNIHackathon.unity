@@ -631,48 +631,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed75ffdf9031c94e8bce4b3d17b9928, type: 2}
   m_IsPrefabAsset: 0
---- !u!1001 &489268455
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4025365340332532, guid: ed3f671ff7ddec84e839831061ec5f77, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -11.609843
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025365340332532, guid: ed3f671ff7ddec84e839831061ec5f77, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1.1553599
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025365340332532, guid: ed3f671ff7ddec84e839831061ec5f77, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 5.8821883
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025365340332532, guid: ed3f671ff7ddec84e839831061ec5f77, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025365340332532, guid: ed3f671ff7ddec84e839831061ec5f77, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025365340332532, guid: ed3f671ff7ddec84e839831061ec5f77, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025365340332532, guid: ed3f671ff7ddec84e839831061ec5f77, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4025365340332532, guid: ed3f671ff7ddec84e839831061ec5f77, type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ed3f671ff7ddec84e839831061ec5f77, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1001 &524561347
 Prefab:
   m_ObjectHideFlags: 0
@@ -1509,11 +1467,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cursor: {fileID: 307031168}
-  spawnObjectPrefab: {fileID: 114480598031347620, guid: ed3f671ff7ddec84e839831061ec5f77,
+  spawnObjectPrefab: {fileID: 114733696316678018, guid: 148b86f6d46c462488474b7603611267,
     type: 2}
-  spawnOrnamentPrefab: {fileID: 1281798256025970, guid: dc0c6260cf3b5d349a43166b0dc722a9,
+  starPrefab: {fileID: 1980328325758652, guid: d869466b8d6edd04099fab287e58d3a1, type: 2}
+  spawnOrnamentPrefab1: {fileID: 1566574894456052, guid: e5647dfe88decc743a017d3805604d94,
     type: 2}
-  InitOrnamentsNumber: 10
+  spawnOrnamentPrefab2: {fileID: 1207599161481638, guid: 9ccf4421c8ebe134983a3ebf9731292f,
+    type: 2}
+  spawnOrnamentPrefab3: {fileID: 1281798256025970, guid: dc0c6260cf3b5d349a43166b0dc722a9,
+    type: 2}
+  InitOrnamentsNumber: 5
 --- !u!114 &1280105747
 MonoBehaviour:
   m_ObjectHideFlags: 0
