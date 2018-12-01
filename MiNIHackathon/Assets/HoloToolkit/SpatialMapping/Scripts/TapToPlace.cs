@@ -47,8 +47,7 @@ namespace HoloToolkit.Unity.SpatialMapping
         /// The default ignore raycast layer built into unity.
         /// </summary>
         private const int IgnoreRaycastLayer = 2;
-
-        private bool placementCompleted = false;
+        private bool dontplace = false;
 
         private Dictionary<GameObject, int> layerCache = new Dictionary<GameObject, int>();
         private Vector3 PlacementPosOffset;
@@ -133,12 +132,9 @@ namespace HoloToolkit.Unity.SpatialMapping
 
         public virtual void OnInputClicked(InputClickedEventData eventData)
         {
-            if (placementCompleted)
-            {
-                var anotherScript = GetComponent<GameController>();
-                anotherScript.SpawnOrnaments();
+            Debug.Log(eventData);
+            if (dontplace)
                 return;
-            }
             // On each tap gesture, toggle whether the user is in placing mode.
             IsBeingPlaced = !IsBeingPlaced;
             HandlePlacement();
@@ -174,7 +170,13 @@ namespace HoloToolkit.Unity.SpatialMapping
 
             ToggleSpatialMesh();
             AttachWorldAnchor();
-            placementCompleted = true;
+
+            Debug.Log("jestem");
+            var anotherScript = GameObject.Find("GameScene").GetComponent<GameController>();
+            Debug.Log(anotherScript);
+
+            anotherScript.SpawnOrnaments();
+            dontplace = true;
 
         }
 

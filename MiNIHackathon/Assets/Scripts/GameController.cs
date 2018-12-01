@@ -39,10 +39,12 @@ public class GameController : MonoBehaviour {
             if (Time.time - startTime > timeToAdd)
             {
                 startTime = Time.time;
-                float x = Random.Range(-1, 1);
+                Vector3 treePos = GameObject.FindGameObjectWithTag("Tree").transform.position;
+                float x = Random.Range(treePos.x - 1, treePos.x + 1);
                 float y = 2f;
-                float z = Random.Range(-1, 1);
+                float z = Random.Range(treePos.z -1, treePos.z + 1);
                 var orn = Instantiate(spawnOrnamentPrefab, new Vector3(x, y, z), Quaternion.identity);
+                Debug.Log(orn);
             }
         }
 	}
@@ -123,10 +125,12 @@ public class GameController : MonoBehaviour {
         Random r = new Random();
         for (int i = 0; i < InitOrnamentsNumber; i++)
         {
-            float x = Random.Range(-1, 1);
+            Vector3 treePos = GameObject.FindGameObjectWithTag("Tree").transform.position;
+            float x = Random.Range(treePos.x - 1, treePos.x + 1);
             float y = 2f;
-            float z = Random.Range(-1, 1);
+            float z = Random.Range(treePos.z - 1, treePos.z + 1);
             var orn = Instantiate(spawnOrnamentPrefab, new Vector3(x,y,z), Quaternion.identity);
+            Debug.Log(orn);
         }
         startSpawning = true;
     }
