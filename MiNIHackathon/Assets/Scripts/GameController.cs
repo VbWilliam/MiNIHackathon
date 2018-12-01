@@ -8,6 +8,14 @@ public class GameController : MonoBehaviour {
 
     public Spawnable spawnObjectPrefab;
 
+    public GameObject spawnOrnamentPrefab;
+
+    public int InitOrnamentsNumber = 5;
+    private float startTime;
+
+    private readonly float timeToAdd = 100;
+
+    private bool startSpawning = false;
     private bool IsGravity = false;
 
     // Use this for initialization
@@ -26,7 +34,17 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(startSpawning)
+        {
+            if (Time.time - startTime > timeToAdd)
+            {
+                startTime = Time.time;
+                float x = Random.Range(-1, 1);
+                float y = 2f;
+                float z = Random.Range(-1, 1);
+                var orn = Instantiate(spawnOrnamentPrefab, new Vector3(x, y, z), Quaternion.identity);
+            }
+        }
 	}
 
     public void StartGame()
@@ -98,5 +116,18 @@ public class GameController : MonoBehaviour {
         {
             foundObject.isKinematic = true;
         }
+    }
+
+    public void SpawnOrnaments()
+    {
+        Random r = new Random();
+        for (int i = 0; i < InitOrnamentsNumber; i++)
+        {
+            float x = Random.Range(-1, 1);
+            float y = 2f;
+            float z = Random.Range(-1, 1);
+            var orn = Instantiate(spawnOrnamentPrefab, new Vector3(x,y,z), Quaternion.identity);
+        }
+        startSpawning = true;
     }
 }

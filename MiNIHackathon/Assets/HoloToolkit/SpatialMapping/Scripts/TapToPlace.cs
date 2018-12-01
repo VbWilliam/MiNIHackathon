@@ -48,6 +48,8 @@ namespace HoloToolkit.Unity.SpatialMapping
         /// </summary>
         private const int IgnoreRaycastLayer = 2;
 
+        private bool placementCompleted = false;
+
         private Dictionary<GameObject, int> layerCache = new Dictionary<GameObject, int>();
         private Vector3 PlacementPosOffset;
 
@@ -131,6 +133,12 @@ namespace HoloToolkit.Unity.SpatialMapping
 
         public virtual void OnInputClicked(InputClickedEventData eventData)
         {
+            if (placementCompleted)
+            {
+                var anotherScript = GetComponent<GameController>();
+                anotherScript.SpawnOrnaments();
+                return;
+            }
             // On each tap gesture, toggle whether the user is in placing mode.
             IsBeingPlaced = !IsBeingPlaced;
             HandlePlacement();
@@ -166,6 +174,8 @@ namespace HoloToolkit.Unity.SpatialMapping
 
             ToggleSpatialMesh();
             AttachWorldAnchor();
+            placementCompleted = true;
+
         }
 
         private void AttachWorldAnchor()
